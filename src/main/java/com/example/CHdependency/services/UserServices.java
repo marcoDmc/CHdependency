@@ -45,7 +45,9 @@ public class UserServices {
     public UserResponseDTO createUser(UserRequestDTO userDto) {
         var user = userMapper.forUserEntity(userDto);
 
-        data.setPassword(config.password().encode(data.getPassword()));
+        if (!utils.validateEmail(user.getEmail())) return null;
+        if (!utils.validatePassword(user.getPassword())) return null;
+        if (!utils.validateName(user.getName())) return null;
 
         user.setPassword(config.password().encode(user.getPassword()));
 

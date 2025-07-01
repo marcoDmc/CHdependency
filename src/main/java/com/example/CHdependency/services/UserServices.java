@@ -30,7 +30,7 @@ public class UserServices {
         this.userMapper = userMapper;
         this.config = config;
     }
-    public boolean updateUserpassword(UserPasswordDTO userDto){
+    public boolean updatePassword(UserPasswordDTO userDto){
         if (userDto.getEmail().isEmpty()) return false;
         var user = userRepository.findByEmail(userDto.getEmail());
         if (user == null) return false;

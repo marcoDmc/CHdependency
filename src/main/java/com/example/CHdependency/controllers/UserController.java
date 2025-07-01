@@ -24,8 +24,16 @@ public class UserController {
     }
 
     @PostMapping("/user/create")
-    public ResponseEntity<String> createUser(@RequestBody UserRequestDTO user) {
-        userServices.createUser(user);
-        return ResponseEntity.status(201).body("user created successfully");
+    public ResponseEntity<?> createUser(@RequestBody UserRequestDTO user) {
+        UserResponseDTO response = userServices.createUser(user);
+
+        if (response == null) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST).body("something is wrong");
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
     }
 }

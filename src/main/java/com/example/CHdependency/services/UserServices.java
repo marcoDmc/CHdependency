@@ -53,7 +53,7 @@ public class UserServices {
     }
 
 
-    public UserResponseDTO createUser(UserRequestDTO userDto) {
+    public UserResponseDTO create(UserRequestDTO userDto) {
         var user = userMapper.forUserEntity(userDto);
 
         if (!utils.validateEmail(user.getEmail())) return null;

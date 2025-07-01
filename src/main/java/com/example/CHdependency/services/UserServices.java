@@ -5,6 +5,8 @@ import com.example.CHdependency.dto.UserRequestDTO;
 import com.example.CHdependency.dto.UserResponseDTO;
 import com.example.CHdependency.mappers.UserMapper;
 import com.example.CHdependency.repositories.UserRepository;
+import com.example.CHdependency.utils.Utils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

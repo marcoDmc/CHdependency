@@ -23,6 +23,13 @@ public class UserController {
         else return ResponseEntity.status(200).body("user update successfully");
     }
 
+    @DeleteMapping("/user/delete")
+    public ResponseEntity<String> deleteUser(@RequestBody UserDeleteDTO user){
+        boolean response = userServices.deleteUser(user);
+        if (!response) return ResponseEntity.status(400).body("something is wrong");
+        else return ResponseEntity.status(200).body("user delete successfully");
+    }
+
     @PostMapping("/user/create")
     public ResponseEntity<?> createUser(@RequestBody UserRequestDTO user) {
         UserResponseDTO response = userServices.createUser(user);

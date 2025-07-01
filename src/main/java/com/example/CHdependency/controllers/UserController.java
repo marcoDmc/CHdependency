@@ -15,9 +15,8 @@ public class UserController {
     final UserService userService;
     final UserMapper userMapper;
 
-    UserController(UserService userService, UserMapper userMapper){
-        this.userService = userService;
-        this.userMapper = userMapper;
+    UserController(UserServices userService){
+        this.userServices = userService;
     }
 
     @PostMapping("/user/c")

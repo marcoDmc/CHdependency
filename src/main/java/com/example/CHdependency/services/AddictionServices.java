@@ -11,8 +11,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AddictionServices {
-    final AddictionRepository addictionRepository;
-    AddictionServices(AddictionRepository addictionRepository){
+    private final AddictionRepository addictionRepository;
+    private final UserRepository userRepository;
+
+    @Autowired
+    private Config config;
+
+
+    AddictionServices(AddictionRepository addictionRepository,
+                      UserRepository userRepository) {
         this.addictionRepository = addictionRepository;
     }
 

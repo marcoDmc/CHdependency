@@ -16,8 +16,16 @@ public class UserController {
         this.userServices = userService;
     }
 
-    @PostMapping("/user/c")
-    public UserResponseDTO createUser(@RequestBody UserRequestDTO user){
-        return userServices.createUser(user);
+    @PatchMapping("/user/password")
+    public ResponseEntity<String> updatePasswordUser(@RequestBody UserPasswordDTO user) {
+        boolean response = userServices.updateUserpassword(user);
+        if (!response) return ResponseEntity.status(400).body("something is wrong");
+        return ResponseEntity.status(200).body("user update successfully");
+    }
+
+    @PostMapping("/user/create")
+    public ResponseEntity<String> createUser(@RequestBody UserRequestDTO user) {
+        userServices.createUser(user);
+        return ResponseEntity.status(201).body("user created successfully");
     }
 }

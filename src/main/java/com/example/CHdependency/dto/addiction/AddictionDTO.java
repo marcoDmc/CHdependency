@@ -1,20 +1,25 @@
-package com.example.CHdependency.dto;
+package com.example.CHdependency.dto.addiction;
 
+
+import com.example.CHdependency.enums.Addictions;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.servlet.annotation.WebServlet;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDeleteDTO {
+public class AddictionDTO {
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")
     private String password;
+    @JsonProperty("type")
+    @Enumerated(EnumType.STRING)
+    private Addictions type;
 }

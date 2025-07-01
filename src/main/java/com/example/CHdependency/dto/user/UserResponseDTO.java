@@ -1,4 +1,4 @@
-package com.example.CHdependency.dto;
+package com.example.CHdependency.dto.user;
 
 import com.example.CHdependency.enums.Gender;
 import jakarta.persistence.EnumType;

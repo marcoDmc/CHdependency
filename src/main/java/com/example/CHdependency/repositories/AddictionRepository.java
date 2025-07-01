@@ -1,6 +1,6 @@
 package com.example.CHdependency.repositories;
 
-import com.example.CHdependency.models.Addiction;
+import com.example.CHdependency.entities.Addiction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

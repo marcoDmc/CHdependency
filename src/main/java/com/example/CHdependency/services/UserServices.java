@@ -28,7 +28,16 @@ public class UserServices {
         this.userMapper = userMapper;
         this.config = config;
     }
-
+    public boolean updateUserpassword(UserPasswordDTO userDto){
+        if (userDto.getEmail().isEmpty()) return false;
+        var user = userRepository.findByEmail(userDto.getEmail());
+        if (user == null) return false;
+        boolean isPwd = config.password().matches(userDto.getPassword(), user.getPassword());
+        if (!isPwd) return false;
+        user.setPassword(config.password().encode(userDto.getNewPassword()));
+        userRepository.save(user);
+        return true;
+    }
     public UserResponseDTO createUser(UserRequestDTO user) {
         var data = userMapper.forUserEntity(user);
 

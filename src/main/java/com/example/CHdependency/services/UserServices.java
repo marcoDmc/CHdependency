@@ -42,9 +42,8 @@ public class UserServices {
     public UserResponseDTO createUser(UserRequestDTO user) {
         var data = userMapper.forUserEntity(user);
 
-        if (!utils.validateEmail(data.getEmail())) return null;
-        if (!utils.validatePassword(data.getPassword())) return null;
-        if (!utils.validateName(data.getName())) return null;
+    public UserResponseDTO createUser(UserRequestDTO userDto) {
+        var user = userMapper.forUserEntity(userDto);
 
         data.setPassword(config.password().encode(data.getPassword()));
 

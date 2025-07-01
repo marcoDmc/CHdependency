@@ -15,6 +15,8 @@ public class UserServices {
                  Config config
     ) {
         this.userRepository = userRepository;
+        this.userMapper = userMapper;
+        this.config = config;
     }
 
     public UserResponseDTO createUser(UserRequestDTO user) {

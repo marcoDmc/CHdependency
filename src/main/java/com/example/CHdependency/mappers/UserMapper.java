@@ -7,7 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 import com.example.CHdependency.dto.UserRequestDTO;
 import com.example.CHdependency.dto.UserResponseDTO;
-import com.example.CHdependency.entities.User;
 
 @Mapper(componentModel="spring")
 public interface UserMapper {

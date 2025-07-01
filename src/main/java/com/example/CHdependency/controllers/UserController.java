@@ -1,5 +1,7 @@
 package com.example.CHdependency.controllers;
 
+import com.example.CHdependency.dto.UserDeleteDTO;
+import com.example.CHdependency.dto.UserPasswordDTO;
 import com.example.CHdependency.dto.UserRequestDTO;
 import com.example.CHdependency.dto.UserResponseDTO;
 import com.example.CHdependency.services.UserServices;

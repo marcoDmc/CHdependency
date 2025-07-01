@@ -12,7 +12,12 @@ public class UserServices {
         this.userRepository = userRepository;
     }
 
-    public User createUser(User user) {
+    public UserResponseDTO createUser(UserRequestDTO user) {
+        var data = userMapper.forUserEntity(user);
+
+        if (!utils.validateEmail(data.getEmail())) return null;
+        if (!utils.validatePassword(data.getPassword())) return null;
+        if (!utils.validateName(data.getName())) return null;
 
        return userRepository.save(user);
     }

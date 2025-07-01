@@ -1,6 +1,7 @@
 package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.Config;
+import com.example.CHdependency.dto.UserPasswordDTO;
 import com.example.CHdependency.dto.UserRequestDTO;
 import com.example.CHdependency.dto.UserResponseDTO;
 import com.example.CHdependency.mappers.UserMapper;

@@ -39,8 +39,18 @@ public class UserServices {
         userRepository.save(user);
         return true;
     }
-    public UserResponseDTO createUser(UserRequestDTO user) {
-        var data = userMapper.forUserEntity(user);
+
+    public boolean deleteUser(UserDeleteDTO userDto){
+        var user = userRepository.findByEmail(userDto.getEmail());
+        if (user == null) return  false;
+
+        boolean isValid = config.password().matches(userDto.getPassword(), user.getPassword());
+        if(!isValid) return false;
+
+        userRepository.delete(user);
+        return true;
+    }
+
 
     public UserResponseDTO createUser(UserRequestDTO userDto) {
         var user = userMapper.forUserEntity(userDto);

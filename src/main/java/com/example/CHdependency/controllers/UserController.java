@@ -1,9 +1,9 @@
 package com.example.CHdependency.controllers;
 
-import com.example.CHdependency.dto.UserDeleteDTO;
-import com.example.CHdependency.dto.UserPasswordDTO;
-import com.example.CHdependency.dto.UserRequestDTO;
-import com.example.CHdependency.dto.UserResponseDTO;
+import com.example.CHdependency.dto.user.UserDeleteDTO;
+import com.example.CHdependency.dto.user.UserPasswordDTO;
+import com.example.CHdependency.dto.user.UserRequestDTO;
+import com.example.CHdependency.dto.user.UserResponseDTO;
 import com.example.CHdependency.services.UserServices;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

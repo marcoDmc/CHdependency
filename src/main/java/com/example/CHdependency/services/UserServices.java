@@ -19,6 +19,10 @@ public class UserServices {
         if (!utils.validatePassword(data.getPassword())) return null;
         if (!utils.validateName(data.getName())) return null;
 
-       return userRepository.save(user);
+        data.setPassword(config.password().encode(data.getPassword()));
+
+        userRepository.save(data);
+
+        return userMapper.forResponse(data);
     }
 }

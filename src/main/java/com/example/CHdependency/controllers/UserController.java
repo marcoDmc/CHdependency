@@ -4,9 +4,7 @@ import com.example.CHdependency.dto.UserRequestDTO;
 import com.example.CHdependency.dto.UserResponseDTO;
 import com.example.CHdependency.services.UserServices;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RestController

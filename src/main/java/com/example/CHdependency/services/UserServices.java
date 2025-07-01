@@ -47,7 +47,7 @@ public class UserServices {
 
         data.setPassword(config.password().encode(data.getPassword()));
 
-        userRepository.save(data);
+        user.setPassword(config.password().encode(user.getPassword()));
 
         userRepository.save(user);
 

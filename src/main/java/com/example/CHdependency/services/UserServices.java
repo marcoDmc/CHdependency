@@ -49,6 +49,8 @@ public class UserServices {
 
         userRepository.save(data);
 
-        return userMapper.forResponse(data);
+        userRepository.save(user);
+
+        return userMapper.forResponse(user);
     }
 }

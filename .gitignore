@@ -1,38 +1,59 @@
-HELP.md
-
-### STS ###
+# ======================================
+# STS (Spring Tool Suite)
+# ======================================
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
+.sts4-cache/
 
-### IntelliJ IDEA ###
-.idea
+# ======================================
+# IntelliJ IDEA
+# ======================================
+.idea/
 *.iws
 *.iml
 *.ipr
-# Arquivos específicos da aplicação
-application.properties
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# ======================================
+# NetBeans
+# ======================================
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
-### VS Code ###
+# ======================================
+# VS Code
+# ======================================
 .vscode/
+
+# ======================================
+# Java
+# ======================================
+*.class
+*.log
+
+# ======================================
 # Gradle
+# ======================================
 .gradle/
 build/
+!gradle/wrapper/gradle-wrapper.jar
 
-# IDEs
-.idea/
-*.class
+# ======================================
+# Arquivos de configuração sensíveis
+# ======================================
+application.properties
+application.yml
+.env
+*.env
 
-# Logs e sistema
-*.log
+# ======================================
+# Sistema Operacional (Windows/Linux/Mac)
+# ======================================
+.DS_Store
+Thumbs.db

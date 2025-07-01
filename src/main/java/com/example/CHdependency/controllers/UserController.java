@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     final UserServices userServices;
 
-    UserController(UserServices userService){
+    UserController(UserServices userService) {
         this.userServices = userService;
     }
 

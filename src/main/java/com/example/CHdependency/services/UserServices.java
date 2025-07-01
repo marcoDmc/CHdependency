@@ -6,7 +6,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServices {
-    final UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
+    private final Utils utils =  new Utils();
+
+    @Autowired
+    private Config config;
 
 
 

@@ -22,7 +22,7 @@ public class UserController {
 
     @PatchMapping("/user/password")
     public ResponseEntity<String> updatePasswordUser(@RequestBody UserPasswordDTO user) {
-        boolean response = userServices.updateUserpassword(user);
+        boolean response = userServices.updatePassword(user);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body("user update successfully");
     }

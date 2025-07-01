@@ -20,8 +20,8 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    @GetMapping("/")
-    public HttpStatus Teste(){
-        return HttpStatus.OK;
+    @PostMapping("/user/c")
+    public UserResponseDTO createUser(@RequestBody UserRequestDTO user){
+        return userServices.createUser(user);
     }
 }

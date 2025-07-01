@@ -26,3 +26,13 @@ application.properties
 
 ### VS Code ###
 .vscode/
+# Gradle
+.gradle/
+build/
+
+# IDEs
+.idea/
+*.class
+
+# Logs e sistema
+*.log

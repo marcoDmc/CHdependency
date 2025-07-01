@@ -1,6 +1,9 @@
 package com.example.CHdependency.services;
 
-import com.example.CHdependency.models.User;
+import com.example.CHdependency.configuration.Config;
+import com.example.CHdependency.dto.UserRequestDTO;
+import com.example.CHdependency.dto.UserResponseDTO;
+import com.example.CHdependency.mappers.UserMapper;
 import com.example.CHdependency.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 

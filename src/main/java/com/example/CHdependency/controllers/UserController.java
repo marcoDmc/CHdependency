@@ -29,7 +29,7 @@ public class UserController {
 
     @DeleteMapping("/user/delete")
     public ResponseEntity<String> deleteUser(@RequestBody UserDeleteDTO user){
-        boolean response = userServices.deleteUser(user);
+        boolean response = userServices.delete(user);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body("user delete successfully");
     }

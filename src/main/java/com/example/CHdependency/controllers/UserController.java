@@ -20,7 +20,7 @@ public class UserController {
     public ResponseEntity<String> updatePasswordUser(@RequestBody UserPasswordDTO user) {
         boolean response = userServices.updateUserpassword(user);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
-        return ResponseEntity.status(200).body("user update successfully");
+        else return ResponseEntity.status(200).body("user update successfully");
     }
 
     @PostMapping("/user/create")

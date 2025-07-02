@@ -14,6 +14,9 @@ public interface AddictionMapper {
 
     @Mapping(target="id", ignore=true)
     Addiction forAddictionEntity(AddictionRequestDTO addiction);
+
+    @Mapping(target = "email", ignore = true)
+    @Mapping(target = "password", ignore = true)
     AddictionResponseDTO forResponse(Addiction addiction);
 
 }

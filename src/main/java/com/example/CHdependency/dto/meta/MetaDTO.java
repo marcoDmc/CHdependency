@@ -1,5 +1,6 @@
 package com.example.CHdependency.dto.meta;
 
+import com.example.CHdependency.enums.Meta;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

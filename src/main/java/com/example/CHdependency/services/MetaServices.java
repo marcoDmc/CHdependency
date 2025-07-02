@@ -50,4 +50,24 @@ public class MetaServices {
 
         return true;
     }
+
+    public Map<String, Object> findPeriod(FindPeriodDTO period){
+        User user = userRepository.findByEmail(period.getEmail());
+        if (user == null) return null;
+
+        boolean isValid = config.password().matches(period.getPassword(), user.getPassword());
+        if (!isValid) return null;
+
+        Metas meta = metaRepository.findByName(period.getName());
+        if (meta == null) return null;
+
+        Period p = Period.parse(meta.getPeriod().toString());
+        Map<String, Object> json = new HashMap<>();
+        json.put("days", p.getDays());
+        json.put("weeks", (p.getMonths() / 4));
+        json.put("months", p.getMonths());
+
+        return json;
+
+    }
 }

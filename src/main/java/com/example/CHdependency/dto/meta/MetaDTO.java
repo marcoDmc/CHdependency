@@ -14,6 +14,8 @@ import lombok.Setter;
 public class MetaDTO {
     @JsonProperty("name")
     private String name;
+    @Enumerated(EnumType.STRING)
+    private Meta range;
     @JsonProperty("time")
     private String time;
 }

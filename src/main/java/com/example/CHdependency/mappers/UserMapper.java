@@ -12,7 +12,9 @@ import com.example.CHdependency.dto.user.UserResponseDTO;
 public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    @Mapping(target="id", ignore=true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "addictions", ignore = true)
+    @Mapping(target = "metas", ignore = true)
     User forUserEntity(UserRequestDTO user);
     UserResponseDTO forResponse(User user);
 }

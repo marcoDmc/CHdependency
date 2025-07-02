@@ -24,4 +24,11 @@ public class MetaController {
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(201).body("create meta successfully");
     }
+
+    @PostMapping("meta/g/period")
+    public ResponseEntity<Object> findPeriod(@RequestBody FindPeriodDTO period){
+        Map<String, Object> response = metaServices.findPeriod(period);
+        if(response == null) return ResponseEntity.status(400).body("something is wrong");
+        else return ResponseEntity.status(200).body(response);
+    }
 }

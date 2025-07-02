@@ -24,5 +24,27 @@ public class MetaServices {
 
     MetaServices(MetaRepository metaRepository, UserRepository userRepository){
         this.metaRepository = metaRepository;
+        this.userRepository = userRepository;
+
+
+    }
+
+    public boolean create(MetaDTO meta){
+        User user = userRepository.findByEmail(meta.getEmail());
+        if (user == null) return false;
+
+        boolean isValid = config.password().matches(meta.getPassword(), user.getPassword());
+        if (!isValid) return false;
+
+        Metas newMeta = new Metas();
+
+        newMeta.setName(meta.getName());
+        Period periodo = utils.returnPeriod(meta.getTime(), meta.getRange());
+        newMeta.setPeriod(periodo);
+        newMeta.setUser(user);
+
+        metaRepository.save(newMeta);
+
+        return true;
     }
 }

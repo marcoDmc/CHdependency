@@ -15,4 +15,17 @@ public class Utils {
         String nameRegex = "^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$";
         return name.matches(nameRegex);
     }
+    public Period returnPeriod(int time, Meta meta) {
+        switch (meta) {
+            case MONTHS:
+                return Period.ofMonths(time);
+            case DAYS:
+                return Period.ofDays(time);
+            case WEEKS:
+                return Period.ofWeeks(time);
+            default:
+                throw new IllegalArgumentException("Tipo de meta inválido: " + meta);
+        }
+    }
+
 }

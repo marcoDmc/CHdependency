@@ -17,5 +17,5 @@ public class MetaDTO {
     @Enumerated(EnumType.STRING)
     private Meta range;
     @JsonProperty("time")
-    private String time;
+    private int time;
 }

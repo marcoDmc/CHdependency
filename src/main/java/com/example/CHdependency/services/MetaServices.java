@@ -15,8 +15,14 @@ import java.time.Period;
 @Service
 public class MetaServices {
 
-    final MetaRepository metaRepository;
-    MetaServices(MetaRepository metaRepository){
+    private final MetaRepository metaRepository;
+    private final UserRepository userRepository;
+    private final Utils utils =  new Utils();
+
+    @Autowired
+    private Config config;
+
+    MetaServices(MetaRepository metaRepository, UserRepository userRepository){
         this.metaRepository = metaRepository;
     }
 }

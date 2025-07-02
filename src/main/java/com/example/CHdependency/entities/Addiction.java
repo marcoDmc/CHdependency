@@ -1,7 +1,7 @@
 package com.example.CHdependency.entities;
 
 
-import com.example.CHdependency.enums.Addictions;
+import com.example.CHdependency.enums.addiction.Addictions;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,7 +1,7 @@
 package com.example.CHdependency.dto.addiction;
 
 
-import com.example.CHdependency.enums.Addictions;
+import com.example.CHdependency.enums.addiction.Addictions;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

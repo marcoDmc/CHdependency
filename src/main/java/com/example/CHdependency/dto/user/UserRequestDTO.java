@@ -1,7 +1,7 @@
 package com.example.CHdependency.dto.user;
 
 
-import com.example.CHdependency.enums.Gender;
+import com.example.CHdependency.enums.user.Gender;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

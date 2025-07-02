@@ -2,7 +2,7 @@ package com.example.CHdependency.entities;
 
 import java.util.List;
 
-import com.example.CHdependency.enums.Gender;
+import com.example.CHdependency.enums.user.Gender;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

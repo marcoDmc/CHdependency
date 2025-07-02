@@ -1,6 +1,6 @@
 package com.example.CHdependency.utils;
 
-import com.example.CHdependency.enums.Meta;
+import com.example.CHdependency.enums.meta.Meta;
 
 import java.time.Period;
 

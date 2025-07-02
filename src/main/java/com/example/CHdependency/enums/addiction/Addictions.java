@@ -1,4 +1,4 @@
-package com.example.CHdependency.enums;
+package com.example.CHdependency.enums.addiction;
 
 public enum Addictions {
     PORNOGRAPHY,

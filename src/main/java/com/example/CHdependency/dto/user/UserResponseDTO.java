@@ -1,6 +1,6 @@
 package com.example.CHdependency.dto.user;
 
-import com.example.CHdependency.enums.Gender;
+import com.example.CHdependency.enums.user.Gender;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;

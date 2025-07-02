@@ -12,7 +12,9 @@ public interface AddictionMapper {
 
     com.example.CHdependency.mappers.UserMapper INSTANCE = Mappers.getMapper(com.example.CHdependency.mappers.UserMapper.class);
 
-    @Mapping(target="id", ignore=true)
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "user", ignore = true)
     Addiction forAddictionEntity(AddictionRequestDTO addiction);
 
     @Mapping(target = "email", ignore = true)

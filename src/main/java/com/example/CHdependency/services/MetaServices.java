@@ -1,6 +1,7 @@
 package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.Config;
+import com.example.CHdependency.dto.meta.DeleteMeta;
 import com.example.CHdependency.dto.meta.FindPeriodDTO;
 import com.example.CHdependency.dto.meta.MetaDTO;
 import com.example.CHdependency.entities.Metas;

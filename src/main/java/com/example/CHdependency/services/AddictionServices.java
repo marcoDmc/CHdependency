@@ -38,4 +38,22 @@ public class AddictionServices {
 
         return true;
     }
+
+    public boolean delete(DeleteAddictionDTO addiction){
+        User user = userRepository.findByEmail(addiction.getEmail());
+        if (user == null) return false;
+
+        boolean isValid = config.password().matches(addiction.getPassword(), user.getPassword());
+        if (!isValid) return false;
+
+        Addiction addictions = addictionRepository.findByUserId(user.getId());
+        if (addictions == null) return false;
+
+        var meta = metaRepository.findByUserId(user.getId());
+        if (meta == null) return false;
+
+        metaRepository.delete(meta);
+        addictionRepository.delete(addictions);
+        return true;
+    }
 }

@@ -23,4 +23,11 @@ public class AddictionController {
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(201).body("create a new addiction type successfully");
     }
+
+    @DeleteMapping("addiction/delete")
+    public ResponseEntity<String> deleteAddiction(@RequestBody DeleteAddictionDTO meta){
+        boolean response = addictionServices.delete(meta);
+        if (!response) return ResponseEntity.status(400).body("something is wrong");
+        else return ResponseEntity.status(200).body("delete addiction successfully");
+    }
 }

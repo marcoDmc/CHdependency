@@ -25,7 +25,9 @@ public class MetaServices {
     @Autowired
     private Config config;
 
-    MetaServices(MetaRepository metaRepository, UserRepository userRepository){
+    MetaServices(MetaRepository metaRepository,
+                 UserRepository userRepository,
+                 AddictionRepository addictionRepository){
         this.metaRepository = metaRepository;
         this.userRepository = userRepository;
 

@@ -1,6 +1,7 @@
 package com.example.CHdependency.controllers;
 
 import com.example.CHdependency.dto.addiction.AddictionDTO;
+import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
 import com.example.CHdependency.services.AddictionServices;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

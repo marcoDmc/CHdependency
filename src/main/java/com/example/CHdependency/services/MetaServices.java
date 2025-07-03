@@ -30,6 +30,7 @@ public class MetaServices {
                  AddictionRepository addictionRepository){
         this.metaRepository = metaRepository;
         this.userRepository = userRepository;
+        this.addictionRepository = addictionRepository;
 
 
     }

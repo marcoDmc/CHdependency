@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeleteMeta {
+public class DeleteMetaDTO {
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")

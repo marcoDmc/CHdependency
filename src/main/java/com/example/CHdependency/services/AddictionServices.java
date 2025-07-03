@@ -22,6 +22,7 @@ public class AddictionServices {
                       UserRepository userRepository) {
         this.addictionRepository = addictionRepository;
         this.userRepository = userRepository;
+        this.metaRepository = metaRepository;
     }
 
     public boolean create(AddictionDTO addictionDto) {

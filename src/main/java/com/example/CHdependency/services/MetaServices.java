@@ -78,7 +78,7 @@ public class MetaServices {
 
     }
 
-    public boolean delete(DeleteMeta meta){
+    public boolean delete(DeleteMetaDTO meta){
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 

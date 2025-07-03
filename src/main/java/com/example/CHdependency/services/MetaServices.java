@@ -6,6 +6,7 @@ import com.example.CHdependency.dto.meta.FindPeriodDTO;
 import com.example.CHdependency.dto.meta.MetaDTO;
 import com.example.CHdependency.entities.Metas;
 import com.example.CHdependency.entities.User;
+import com.example.CHdependency.repositories.AddictionRepository;
 import com.example.CHdependency.repositories.MetaRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import com.example.CHdependency.utils.Utils;

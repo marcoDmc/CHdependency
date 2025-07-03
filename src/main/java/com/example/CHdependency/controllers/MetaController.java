@@ -33,7 +33,7 @@ public class MetaController {
         else return ResponseEntity.status(200).body(response);
     }
     @DeleteMapping("meta/delete")
-    public ResponseEntity<String> deleteMeta(@RequestBody DeleteMeta meta){
+    public ResponseEntity<String> deleteMeta(@RequestBody DeleteMetaDTO meta){
         boolean response = metaServices.delete(meta);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body("delete meta successfully");

@@ -70,4 +70,22 @@ public class MetaServices {
         return json;
 
     }
+
+    public boolean delete(DeleteMeta meta){
+        User user = userRepository.findByEmail(meta.getEmail());
+        if (user == null) return false;
+
+        boolean isValid = config.password().matches(meta.getPassword(), user.getPassword());
+        if (!isValid) return false;
+
+        Metas metas = metaRepository.findByName(meta.getName());
+        if (metas == null) return false;
+
+        var addiction = addictionRepository.findByUserId(user.getId());
+        if (addiction == null) return false;
+
+        metaRepository.delete(metas);
+        addictionRepository.delete(addiction);
+        return true;
+    }
 }

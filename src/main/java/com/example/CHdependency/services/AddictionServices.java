@@ -19,7 +19,8 @@ public class AddictionServices {
 
 
     AddictionServices(AddictionRepository addictionRepository,
-                      UserRepository userRepository) {
+                      UserRepository userRepository,
+                      MetaRepository metaRepository) {
         this.addictionRepository = addictionRepository;
         this.userRepository = userRepository;
         this.metaRepository = metaRepository;

@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MetaRepository extends JpaRepository<Metas, Long> {
     Metas findByName(String name);
+    Metas findByUserId(Long id);
 }

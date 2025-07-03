@@ -20,6 +20,7 @@ public class MetaServices {
 
     private final MetaRepository metaRepository;
     private final UserRepository userRepository;
+    private final AddictionRepository addictionRepository;
     private final Utils utils =  new Utils();
 
     @Autowired

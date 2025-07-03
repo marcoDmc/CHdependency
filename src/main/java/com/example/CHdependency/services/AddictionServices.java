@@ -6,6 +6,7 @@ import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
 import com.example.CHdependency.entities.Addiction;
 import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.AddictionRepository;
+import com.example.CHdependency.repositories.MetaRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

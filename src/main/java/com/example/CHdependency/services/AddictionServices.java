@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class AddictionServices {
     private final AddictionRepository addictionRepository;
     private final UserRepository userRepository;
+    private final MetaRepository metaRepository;
 
     @Autowired
     private Config config;

@@ -16,6 +16,11 @@ public class AddictionController {
     }
 
     @PostMapping("/addiction/create")
+    @Operation(summary = "create", description = "creates a new addiction")
+    @ApiResponse(responseCode = "201", description = "addiction created successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<String> createAddiction(@RequestBody AddictionDTO addiction){
         boolean response = addictionServices.create(addiction);
         if (!response) return ResponseEntity.status(400).body("something is wrong");

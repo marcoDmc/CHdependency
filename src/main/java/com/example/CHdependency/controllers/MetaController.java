@@ -20,6 +20,11 @@ public class MetaController {
 
 
     @PostMapping("/meta/create")
+    @Operation(summary = "create", description = "create a new goal")
+    @ApiResponse(responseCode = "201", description = "meta created successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<String> createMeta(@RequestBody MetaDTO meta){
         boolean response  = metaServices.create(meta);
         if (!response) return ResponseEntity.status(400).body("something is wrong");

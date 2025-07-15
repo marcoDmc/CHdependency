@@ -29,6 +29,13 @@ import java.security.interfaces.RSAPublicKey;
 
 @Configuration
 @EnableWebSecurity
+@SecurityScheme(
+        name = ConfigAuthentication.SECURITY,
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer",
+        bearerFormat = "JWT",
+        in = SecuritySchemeIn.HEADER
+)
 public class ConfigAuthentication {
     @Value("${jwt.public.key}")
     private RSAPublicKey key;

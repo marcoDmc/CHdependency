@@ -45,6 +45,11 @@ public class MetaController {
         else return ResponseEntity.status(200).body(response);
     }
     @DeleteMapping("meta/delete")
+    @Operation(summary = "delete", description = "delete a goal")
+    @ApiResponse(responseCode = "200", description = "goal deleted successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<String> deleteMeta(@RequestBody DeleteMetaDTO meta){
         boolean response = metaServices.delete(meta);
         if (!response) return ResponseEntity.status(400).body("something is wrong");

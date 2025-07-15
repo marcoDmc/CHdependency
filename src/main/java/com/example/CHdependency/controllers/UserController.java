@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name = "User", description = "deals with everything that involves the user since the creation")
+@SecurityRequirement(name = ConfigAuthentication.SECURITY)
 public class UserController {
     final UserServices userServices;
 

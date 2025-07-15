@@ -1,6 +1,6 @@
 package com.example.CHdependency.services;
 
-import com.example.CHdependency.configuration.Config;
+import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.dto.addiction.AddictionDTO;
 import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
 import com.example.CHdependency.entities.Addiction;
@@ -16,9 +16,7 @@ public class AddictionServices {
     private final AddictionRepository addictionRepository;
     private final UserRepository userRepository;
     private final MetaRepository metaRepository;
-
-    @Autowired
-    private Config config;
+    private ConfigAuthentication config;
 
 
     AddictionServices(AddictionRepository addictionRepository,

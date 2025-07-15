@@ -78,10 +78,7 @@ public class ConfigAuthentication {
                         "/swagger-ui.html"
                 )
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/private/authenticate", "/api/v1/user/create")
-                                .permitAll()
-                );
+                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
         return http.build();
     }
 

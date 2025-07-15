@@ -23,6 +23,11 @@ public class AddictionController {
     }
 
     @DeleteMapping("addiction/delete")
+    @Operation(summary = "delete", description = "delete a addiction")
+    @ApiResponse(responseCode = "200", description = "addiction deleted successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<String> deleteAddiction(@RequestBody DeleteAddictionDTO meta){
         boolean response = addictionServices.delete(meta);
         if (!response) return ResponseEntity.status(400).body("something is wrong");

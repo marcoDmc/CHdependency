@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name = "Addiction", description = "deals with all the routes involving the scope of addiction")
+@SecurityRequirement(name = ConfigAuthentication.SECURITY)
 public class AddictionController {
     private final AddictionServices addictionServices;
 

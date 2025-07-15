@@ -42,6 +42,8 @@ public class ConfigAuthentication {
     @Value("${jwt.private.key}")
     private RSAPrivateKey priv;
 
+    public static final String SECURITY = "bearerAuth";
+
 
     @Bean
     JwtDecoder jwtDecoder() {

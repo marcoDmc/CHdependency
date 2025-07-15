@@ -1,6 +1,6 @@
 package com.example.CHdependency.services;
 
-import com.example.CHdependency.configuration.Config;
+import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.dto.user.UserDeleteDTO;
 import com.example.CHdependency.dto.user.UserPasswordDTO;
 import com.example.CHdependency.dto.user.UserRequestDTO;
@@ -16,15 +16,13 @@ public class UserServices {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final Utils utils =  new Utils();
-
-    @Autowired
-    private Config config;
+    private ConfigAuthentication config;
 
 
 
     UserServices(UserRepository userRepository,
                  UserMapper userMapper,
-                 Config config
+                 ConfigAuthentication config
     ) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;

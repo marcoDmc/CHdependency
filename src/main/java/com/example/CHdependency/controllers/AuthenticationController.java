@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/private")
+@Tag(name="Private", description = "route for user authentication")
+@SecurityRequirement(name = ConfigAuthentication.SECURITY)
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
     private final AuthenticationManager authenticationManager;

@@ -52,6 +52,10 @@ public class UserController {
     }
 
     @PostMapping("/user/create")
+    @Operation(summary = "create", description = "Creates a new user")
+    @ApiResponse(responseCode = "201", description = "user created successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<?> createUser(@RequestBody UserRequestDTO user) {
         UserResponseDTO response = userServices.create(user);
 

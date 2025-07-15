@@ -1,6 +1,6 @@
 package com.example.CHdependency.services;
 
-import com.example.CHdependency.configuration.Config;
+import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.dto.meta.DeleteMetaDTO;
 import com.example.CHdependency.dto.meta.FindPeriodDTO;
 import com.example.CHdependency.dto.meta.MetaDTO;
@@ -25,9 +25,7 @@ public class MetaServices {
     private final UserRepository userRepository;
     private final AddictionRepository addictionRepository;
     private final Utils utils =  new Utils();
-
-    @Autowired
-    private Config config;
+    private ConfigAuthentication config;
 
     MetaServices(MetaRepository metaRepository,
                  UserRepository userRepository,

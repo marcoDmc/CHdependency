@@ -11,6 +11,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name= "Meta", description = "deals with everything that involves a user's goals")
+@SecurityRequirement(name = ConfigAuthentication.SECURITY)
 public class MetaController {
 
     private final MetaServices metaServices;

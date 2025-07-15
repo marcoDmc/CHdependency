@@ -9,12 +9,12 @@ import lombok.Setter;
 import java.time.Period;
 
 @Entity
-@Table(name = "metas")
+@Table(name = "goals")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Metas {
+public class Goal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

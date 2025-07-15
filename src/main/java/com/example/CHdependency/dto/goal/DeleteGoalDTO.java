@@ -1,4 +1,4 @@
-package com.example.CHdependency.dto.meta;
+package com.example.CHdependency.dto.goal;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeleteMetaDTO {
+public class DeleteGoalDTO {
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")

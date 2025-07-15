@@ -1,6 +1,6 @@
 package com.example.CHdependency.utils;
 
-import com.example.CHdependency.enums.meta.Meta;
+import com.example.CHdependency.enums.goal.Goal;
 
 import java.time.Period;
 
@@ -19,7 +19,7 @@ public class Utils {
         String nameRegex = "^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$";
         return name.matches(nameRegex);
     }
-    public Period returnPeriod(int time, Meta meta) {
+    public Period returnPeriod(int time, Goal meta) {
         switch (meta) {
             case MONTHS:
                 return Period.ofMonths(time);

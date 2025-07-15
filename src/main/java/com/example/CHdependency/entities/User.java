@@ -44,6 +44,6 @@ public class User {
     private List<Addiction> addictions;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Metas> metas;
+    private List<Goal> goals;
 
 }

@@ -1,16 +1,15 @@
 package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
-import com.example.CHdependency.dto.meta.DeleteMetaDTO;
-import com.example.CHdependency.dto.meta.FindPeriodDTO;
-import com.example.CHdependency.dto.meta.MetaDTO;
-import com.example.CHdependency.entities.Metas;
+import com.example.CHdependency.dto.goal.DeleteGoalDTO;
+import com.example.CHdependency.dto.goal.FindGoalPeriodDTO;
+import com.example.CHdependency.dto.goal.GoalDTO;
+import com.example.CHdependency.entities.Goal;
 import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.AddictionRepository;
-import com.example.CHdependency.repositories.MetaRepository;
+import com.example.CHdependency.repositories.GoalRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import com.example.CHdependency.utils.Utils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Period;
@@ -19,15 +18,15 @@ import java.util.Map;
 
 
 @Service
-public class MetaServices {
+public class GoalServices {
 
-    private final MetaRepository metaRepository;
+    private final GoalRepository metaRepository;
     private final UserRepository userRepository;
     private final AddictionRepository addictionRepository;
     private final Utils utils =  new Utils();
     private ConfigAuthentication config;
 
-    MetaServices(MetaRepository metaRepository,
+    GoalServices(GoalRepository metaRepository,
                  UserRepository userRepository,
                  AddictionRepository addictionRepository){
         this.metaRepository = metaRepository;
@@ -37,14 +36,14 @@ public class MetaServices {
 
     }
 
-    public boolean create(MetaDTO meta){
+    public boolean create(GoalDTO meta){
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 
         boolean isValid = config.password().matches(meta.getPassword(), user.getPassword());
         if (!isValid) return false;
 
-        Metas newMeta = new Metas();
+        Goal newMeta = new Goal();
 
         newMeta.setName(meta.getName());
         Period periodo = utils.returnPeriod(meta.getTime(), meta.getRange());
@@ -56,14 +55,14 @@ public class MetaServices {
         return true;
     }
 
-    public Map<String, Object> findPeriod(FindPeriodDTO period){
+    public Map<String, Object> findPeriod(FindGoalPeriodDTO period){
         User user = userRepository.findByEmail(period.getEmail());
         if (user == null) return null;
 
         boolean isValid = config.password().matches(period.getPassword(), user.getPassword());
         if (!isValid) return null;
 
-        Metas meta = metaRepository.findByName(period.getName());
+        Goal meta = metaRepository.findByName(period.getName());
         if (meta == null) return null;
 
         Period p = Period.parse(meta.getPeriod().toString());
@@ -76,14 +75,14 @@ public class MetaServices {
 
     }
 
-    public boolean delete(DeleteMetaDTO meta){
+    public boolean delete(DeleteGoalDTO meta){
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 
         boolean isValid = config.password().matches(meta.getPassword(), user.getPassword());
         if (!isValid) return false;
 
-        Metas metas = metaRepository.findByName(meta.getName());
+        Goal metas = metaRepository.findByName(meta.getName());
         if (metas == null) return false;
 
         var addiction = addictionRepository.findByUserId(user.getId());

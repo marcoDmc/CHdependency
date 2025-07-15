@@ -6,22 +6,21 @@ import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
 import com.example.CHdependency.entities.Addiction;
 import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.AddictionRepository;
-import com.example.CHdependency.repositories.MetaRepository;
+import com.example.CHdependency.repositories.GoalRepository;
 import com.example.CHdependency.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AddictionServices {
     private final AddictionRepository addictionRepository;
     private final UserRepository userRepository;
-    private final MetaRepository metaRepository;
+    private final GoalRepository metaRepository;
     private ConfigAuthentication config;
 
 
     AddictionServices(AddictionRepository addictionRepository,
                       UserRepository userRepository,
-                      MetaRepository metaRepository) {
+                      GoalRepository metaRepository) {
         this.addictionRepository = addictionRepository;
         this.userRepository = userRepository;
         this.metaRepository = metaRepository;

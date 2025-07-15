@@ -14,7 +14,7 @@ public interface UserMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "addictions", ignore = true)
-    @Mapping(target = "metas", ignore = true)
+    @Mapping(target = "goals", ignore = true)
     User forUserEntity(UserRequestDTO user);
     UserResponseDTO forResponse(User user);
 }

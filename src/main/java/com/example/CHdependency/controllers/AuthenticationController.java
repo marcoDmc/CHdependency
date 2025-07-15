@@ -25,6 +25,10 @@ public class AuthenticationController {
 
 
     @PostMapping("/authenticate")
+    @Operation(summary = "authenticate", description = "route for authentication and verification of user credentials")
+    @ApiResponse(responseCode = "200", description = "user successfully authenticated")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public String authenticate(@RequestBody CrendentialsUserDTO authentication)
     {
         Authentication auth = authenticationManager.authenticate(

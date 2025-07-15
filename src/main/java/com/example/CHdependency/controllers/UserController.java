@@ -40,6 +40,11 @@ public class UserController {
     }
 
     @DeleteMapping("/user/delete")
+    @Operation(summary = "delete", description = "delete a user")
+    @ApiResponse(responseCode = "200", description = "user deleted successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<String> deleteUser(@RequestBody UserDeleteDTO user){
         boolean response = userServices.delete(user);
         if (!response) return ResponseEntity.status(400).body("something is wrong");

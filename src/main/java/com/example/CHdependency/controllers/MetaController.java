@@ -34,6 +34,11 @@ public class MetaController {
     }
 
     @PostMapping("meta/g/period")
+    @Operation(summary = "goal search", description = "seeks a specific goal from a certain period")
+    @ApiResponse(responseCode = "200", description = "goal successfully met within the period")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<Object> findPeriod(@RequestBody FindPeriodDTO period){
         Map<String, Object> response = metaServices.findPeriod(period);
         if(response == null) return ResponseEntity.status(400).body("something is wrong");

@@ -28,6 +28,11 @@ public class UserController {
     }
 
     @PatchMapping("/user/password")
+    @Operation(summary = "change password", description = "change the user's password")
+    @ApiResponse(responseCode = "200", description = "user password changed successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
     public ResponseEntity<String> updatePasswordUser(@RequestBody UserPasswordDTO user) {
         boolean response = userServices.updatePassword(user);
         if (!response) return ResponseEntity.status(400).body("something is wrong");

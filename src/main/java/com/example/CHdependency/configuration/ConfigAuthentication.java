@@ -70,7 +70,13 @@ public class ConfigAuthentication {
     @Bean
     @Order(0)
     public SecurityFilterChain publicChain(HttpSecurity http) throws Exception {
-        http.securityMatcher("/private/authenticate", "/api/v1/user/create")
+        http.securityMatcher(
+                        "/private/authenticate",
+                        "/api/v1/user/create",
+                        "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html"
+                )
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/private/authenticate", "/api/v1/user/create")

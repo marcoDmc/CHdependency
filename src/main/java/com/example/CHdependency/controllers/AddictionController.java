@@ -1,5 +1,6 @@
 package com.example.CHdependency.controllers;
 
+import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.dto.addiction.AddictionDTO;
 import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
 import com.example.CHdependency.services.AddictionServices;

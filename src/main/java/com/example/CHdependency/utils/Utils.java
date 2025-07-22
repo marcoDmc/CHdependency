@@ -1,6 +1,7 @@
 package com.example.CHdependency.utils;
 
 import com.example.CHdependency.enums.goal.Goal;
+import org.springframework.stereotype.Component;
 
 import java.time.Period;
 

@@ -32,7 +32,7 @@ public class AddictionServices {
         if (!utils.validateEmail(addictionDto.getEmail())) return false;
 
         User user = userRepository.findByEmail(addictionDto.getEmail());
-        if(user == null) return false;
+        if (user == null) return false;
 
         boolean isValid = config.password().matches(addictionDto.getPassword(), user.getPassword());
         if(!isValid) return false;

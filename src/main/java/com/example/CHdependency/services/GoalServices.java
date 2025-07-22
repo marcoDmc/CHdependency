@@ -60,7 +60,11 @@ public class GoalServices {
         return true;
     }
 
-    public Map<String, Object> findPeriod(FindGoalPeriodDTO period){
+    public Map<String, Object> findPeriod(FindGoalPeriodDTO period) {
+        if (period.getName() == null) return null;
+        if (period.getPassword() == null) return null;
+        if (!utils.validateEmail(period.getEmail()) || period.getEmail() == null) return null;
+
         User user = userRepository.findByEmail(period.getEmail());
         if (user == null) return null;
 

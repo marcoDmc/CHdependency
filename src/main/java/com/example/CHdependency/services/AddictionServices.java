@@ -20,7 +20,7 @@ public class AddictionServices {
 
     AddictionServices(AddictionRepository addictionRepository,
                       UserRepository userRepository,
-                      GoalRepository metaRepository) {
+                      GoalRepository metaRepository, ConfigAuthentication config, Utils utils) {
         this.addictionRepository = addictionRepository;
         this.userRepository = userRepository;
         this.metaRepository = metaRepository;

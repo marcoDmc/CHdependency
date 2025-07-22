@@ -25,6 +25,7 @@ public class UserServices {
                         ConfigAuthentication config) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
+        this.utils = utils;
         this.config = config;
     }
     public boolean updatePassword(UserPasswordDTO userDto){

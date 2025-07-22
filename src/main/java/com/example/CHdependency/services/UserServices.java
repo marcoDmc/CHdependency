@@ -44,7 +44,7 @@ public class UserServices {
         if (user == null) return false;
 
         boolean isValid = config.password().matches(userDto.getPassword(), user.getPassword());
-        if(!isValid) return false;
+        if (!isValid) return false;
 
         userRepository.delete(user);
         return true;

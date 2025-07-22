@@ -8,6 +8,7 @@ import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.AddictionRepository;
 import com.example.CHdependency.repositories.GoalRepository;
 import com.example.CHdependency.repositories.UserRepository;
+import com.example.CHdependency.utils.Utils;
 import org.springframework.stereotype.Service;
 
 @Service

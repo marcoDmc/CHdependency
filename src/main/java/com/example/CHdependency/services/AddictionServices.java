@@ -27,6 +27,10 @@ public class AddictionServices {
     }
 
     public boolean create(AddictionDTO addictionDto) {
+        if (addictionDto.getType() == null) return false;
+        if (addictionDto.getPassword() == null) return false;
+        if (!utils.validateEmail(addictionDto.getEmail())) return false;
+
         User user = userRepository.findByEmail(addictionDto.getEmail());
         if(user == null) return false;
 

@@ -4,6 +4,7 @@ import com.example.CHdependency.enums.goal.Goal;
 
 import java.time.Period;
 
+@Component
 public class Utils {
     public boolean validatePassword(String password){
         String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&#^+=])[A-Za-z\\d@$!%*?&#^+=]{8,}$";

@@ -35,6 +35,8 @@ public class UserServices {
         if (user == null) return false;
         boolean isPwd = config.password().matches(userDto.getPassword(), user.getPassword());
         if (!isPwd) return false;
+        boolean verifyPasswordIsEqual = config.password().matches(userDto.getNewPassword(), user.getPassword());
+        if (verifyPasswordIsEqual) return false;
         user.setPassword(config.password().encode(userDto.getNewPassword()));
         userRepository.save(user);
         return true;

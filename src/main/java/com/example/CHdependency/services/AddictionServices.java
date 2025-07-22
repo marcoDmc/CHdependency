@@ -35,7 +35,7 @@ public class AddictionServices {
         if (user == null) return false;
 
         boolean isValid = config.password().matches(addictionDto.getPassword(), user.getPassword());
-        if(!isValid) return false;
+        if (!isValid) return false;
 
         Addiction addiction = new Addiction();
         addiction.setType(addictionDto.getType());

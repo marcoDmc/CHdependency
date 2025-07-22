@@ -15,7 +15,8 @@ public class AddictionServices {
     private final AddictionRepository addictionRepository;
     private final UserRepository userRepository;
     private final GoalRepository metaRepository;
-    private ConfigAuthentication config;
+    private final ConfigAuthentication config;
+    private final Utils utils;
 
 
     AddictionServices(AddictionRepository addictionRepository,

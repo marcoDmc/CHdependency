@@ -28,7 +28,8 @@ public class UserServices {
         this.utils = utils;
         this.config = config;
     }
-    public boolean updatePassword(UserPasswordDTO userDto){
+
+    public boolean updatePassword(UserPasswordDTO userDto) {
         if (userDto.getEmail().isEmpty()) return false;
         var user = userRepository.findByEmail(userDto.getEmail());
         if (user == null) return false;

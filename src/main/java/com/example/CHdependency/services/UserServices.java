@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 public class UserServices {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-    private final Utils utils =  new Utils();
-    private ConfigAuthentication config;
+    private final Utils utils;
+    private final ConfigAuthentication config;
 
 
 

@@ -36,7 +36,12 @@ public class GoalServices {
 
     }
 
-    public boolean create(GoalDTO meta){
+    public boolean create(GoalDTO meta) {
+
+        if (!utils.validateName(meta.getName())) return false;
+        if (meta.getPassword() == null) return false;
+        if (!utils.validateEmail(meta.getEmail())) return false;
+
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 

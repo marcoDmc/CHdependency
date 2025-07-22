@@ -39,7 +39,7 @@ public class UserServices {
         return true;
     }
 
-    public boolean delete(UserDeleteDTO userDto){
+    public boolean delete(UserDeleteDTO userDto) {
         var user = userRepository.findByEmail(userDto.getEmail());
         if (user == null) return  false;
 

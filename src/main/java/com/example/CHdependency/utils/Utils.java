@@ -18,6 +18,9 @@ public class Utils {
     }
 
     public boolean validateName(String name){
+        if (name == null || name.trim().isEmpty()) {
+            return false;
+        }
         String nameRegex = "^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$";
         return name.matches(nameRegex);
     }

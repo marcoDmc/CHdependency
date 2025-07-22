@@ -41,7 +41,7 @@ public class UserServices {
 
     public boolean delete(UserDeleteDTO userDto) {
         var user = userRepository.findByEmail(userDto.getEmail());
-        if (user == null) return  false;
+        if (user == null) return false;
 
         boolean isValid = config.password().matches(userDto.getPassword(), user.getPassword());
         if(!isValid) return false;

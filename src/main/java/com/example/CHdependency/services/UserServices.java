@@ -19,11 +19,10 @@ public class UserServices {
     private final ConfigAuthentication config;
 
 
-
-    UserServices(UserRepository userRepository,
-                 UserMapper userMapper,
-                 ConfigAuthentication config
-    ) {
+    public UserServices(UserRepository userRepository,
+                        UserMapper userMapper,
+                        Utils utils,
+                        ConfigAuthentication config) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.config = config;

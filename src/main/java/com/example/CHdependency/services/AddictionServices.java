@@ -41,7 +41,11 @@ public class AddictionServices {
         return true;
     }
 
-    public boolean delete(DeleteAddictionDTO addiction){
+    public boolean delete(DeleteAddictionDTO addiction) {
+        if (addiction.getType() == null) return false;
+        if (addiction.getPassword() == null) return false;
+        if (!utils.validateEmail(addiction.getEmail())) return false;
+
         User user = userRepository.findByEmail(addiction.getEmail());
         if (user == null) return false;
 

@@ -38,6 +38,10 @@ public class UserController {
                    AuthenticationManager authenticationManager,
                    JwtServices jwtServices) {
         this.userServices = userService;
+        this.authenticationService = authenticationService;
+        this.authenticationManager = authenticationManager;
+        this.jwtServices = jwtServices;
+
     }
 
     @PatchMapping("/user/password")

@@ -40,7 +40,7 @@ public class AddictionServices {
         User user = userRepository.findByEmail(addictionDto.getEmail());
         if (user == null) return false;
 
-        boolean isValid = config.password().matches(addictionDto.getPassword(), user.getPassword());
+        boolean isValid = config.passwordEncoder().matches(addictionDto.getPassword(), user.getPassword());
         if (!isValid) return false;
 
         Addiction addiction = new Addiction();

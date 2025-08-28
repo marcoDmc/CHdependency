@@ -39,7 +39,7 @@ public class UserServices {
         if (userDto.getEmail().isEmpty()) return false;
         var user = userRepository.findByEmail(userDto.getEmail());
         if (user == null) return false;
-        boolean isPwd = config.password().matches(userDto.getPassword(), user.getPassword());
+        boolean isPwd = config.passwordEncoder().matches(userDto.getPassword(), user.getPassword());
         if (!isPwd) return false;
         boolean verifyPasswordIsEqual = config.password().matches(userDto.getNewPassword(), user.getPassword());
         if (verifyPasswordIsEqual) return false;

@@ -114,11 +114,29 @@ public class ConfigAuthentication {
 
     @Bean
     @Order(1)
-    public SecurityFilterChain authChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults())
-                .oauth2ResourceServer(conf -> conf.jwt(Customizer.withDefaults()));
+    public SecurityFilterChain jwtChain(HttpSecurity http) throws Exception {
+        http
+                .securityMatcher("/**")
+                .csrf(csrf -> csrf.disable())
+                .cors(Customizer.withDefaults())
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth.requestMatchers(
+                                "/api/v1/user/**",
+                                "/api/v1/user/login",
+                                "/api/v1/user/login",
+                                "/api/v1/user/refresh",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/legacy-basic/**",
+                                "/admin/**"
+                        ).permitAll()
+                        .anyRequest().authenticated())
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
+                .exceptionHandling(ex -> ex
+                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
+                );
         return http.build();
     }
 }

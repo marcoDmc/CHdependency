@@ -2,14 +2,12 @@ package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.entities.RefreshToken;
-import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.RefreshTokenRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -90,11 +88,9 @@ public class JwtServices {
                 .build();
 
         String jwtRefreshToken = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
-        String hashedJti = configAuthentication.passwordEncoder().encode(jti);
-
         RefreshToken existingToken = refreshTokenRepository.findByUserId(userId);
 
-        existingToken.setToken(hashedJti);
+        existingToken.setToken(jti);
         existingToken.setExpiryDate(now.plusSeconds(expirationInSeconds));
 
         refreshTokenRepository.save(existingToken);
@@ -124,11 +120,10 @@ public class JwtServices {
                 .build();
 
         String jwtRefreshToken = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
-        String hashedJti = configAuthentication.passwordEncoder().encode(jti);
         var user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("user not found."));
 
         RefreshToken refreshToken = new RefreshToken();
-        refreshToken.setToken(hashedJti);
+        refreshToken.setToken(jti);
         refreshToken.setExpiryDate(now.plusSeconds(expirationInSeconds));
         refreshToken.setUser(user);
 
@@ -144,7 +139,11 @@ public class JwtServices {
             var jwt = jwtDecoder.decode(token);
             String url = String.valueOf(jwt.getIssuer());
             Instant exp = jwt.getExpiresAt();
+            System.out.println("Issuer from token: " + url);
+            System.out.println("Exp from token: " + exp);
+            System.out.println("url from token: " + url.equals(issuerUrl));
             boolean notExpired = exp == null || exp.isAfter(Instant.now());
+            System.out.println("notexp from token: " + notExpired);
             return notExpired && url.equals(issuerUrl);
         } catch (Exception e) {
             return false;

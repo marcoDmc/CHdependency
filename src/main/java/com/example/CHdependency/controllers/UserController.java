@@ -105,9 +105,9 @@ public class UserController {
         UserAuthentication userDetails = (UserAuthentication) auth.getPrincipal();
         Long userId = userDetails.getId();
 
-        var token = jwtServices.refreshTokenFindById(userId);
-        if (token.isPresent()) {
-            jwtServices.refreshTokenDeleteById(userId);
+        var token = jwtServices.refreshTokenFindByUserId(userId);
+        if (token != null) {
+            jwtServices.refreshTokenDeleteByUserId(userId);
         }
 
         Map<String, String> tokens = authenticationService.authenticateLogin(auth, userId);

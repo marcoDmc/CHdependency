@@ -67,19 +67,29 @@ public class AuthController {
     public ResponseEntity<?> refreshToken(@CookieValue(name = "refreshToken", required = false) String refreshTokenFromCookie, HttpServletResponse response) {
 
         try {
-            String jtiFromJwt = jwtServices.refreshTokenExtractJti(refreshTokenFromCookie);
-            Long userId = jwtServices.refreshTokenExtractUserId(refreshTokenFromCookie);
 
-            if (refreshTokenFromCookie.isEmpty() ||
-                    jwtServices.refreshTokenIsTokenExpired(refreshTokenFromCookie) ||
-                    !jwtServices.refreshTokenIsTokenValid(refreshTokenFromCookie)) {
+            if (refreshTokenFromCookie == null || refreshTokenFromCookie.isEmpty()) {
+                System.out.println("Cookie vazio ou nulo");
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Refresh Token invalid.");
             }
 
-            var tokenDatabase = jwtServices.refreshTokenFindByUserId(userId);
-            var compareJti = configAuthentication.passwordEncoder().matches(jtiFromJwt, tokenDatabase.getToken());
+            if (!jwtServices.refreshTokenIsTokenValid(refreshTokenFromCookie)) {
+                System.out.println("Validação JWT falhou");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Refresh Token invalid.");
+            }
 
-            if (!compareJti) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Refresh Token invalid.");
+
+            String jtiFromJwt = jwtServices.refreshTokenExtractJti(refreshTokenFromCookie);
+            System.out.println("JTI: " + jtiFromJwt);
+            Long userId = jwtServices.refreshTokenExtractUserId(refreshTokenFromCookie);
+
+            var tokenDatabase = jwtServices.refreshTokenFindByUserId(userId);
+            var compareJti = jtiFromJwt.equals(tokenDatabase.getToken());
+
+            if (!compareJti) {
+                System.out.println("JTI do banco não bate com o do token");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Refresh Token invalid.");
+            }
 
             var user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("User credentials not provided"));
 

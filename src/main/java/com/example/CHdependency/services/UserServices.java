@@ -70,7 +70,7 @@ public class UserServices {
         if (!utils.validatePassword(user.getPassword())) return null;
         if (!utils.validateName(user.getName())) return null;
 
-        user.setPassword(config.password().encode(user.getPassword()));
+        user.setPassword(config.passwordEncoder().encode(user.getPassword()));
 
         userRepository.save(user);
 

@@ -87,6 +87,7 @@ public class GoalServices {
 
     }
 
+    @Transactional
     public boolean delete(DeleteGoalDTO meta) {
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;

@@ -19,6 +19,7 @@ public class UserServices {
     private final UserMapper userMapper;
     private final Utils utils;
     private final ConfigAuthentication config;
+    private final RefreshTokenRepository refreshTokenRepository;
 
 
     public UserServices(UserRepository userRepository,

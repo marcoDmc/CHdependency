@@ -20,6 +20,10 @@ public class UserAuthentication implements UserDetails {
         return List.of(() -> "read");
     }
 
+    public Long gentId() {
+        return user.getId();
+    }
+
     @Override
     public String getPassword() {
         return user.getPassword();

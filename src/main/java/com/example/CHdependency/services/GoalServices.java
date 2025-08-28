@@ -37,6 +37,7 @@ public class GoalServices {
 
     }
 
+    @Transactional
     public boolean create(GoalDTO meta) {
 
         if (!utils.validateName(meta.getName())) return false;

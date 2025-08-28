@@ -62,6 +62,7 @@ public class GoalServices {
         return true;
     }
 
+    @Transactional
     public Map<String, Object> findPeriod(FindGoalPeriodDTO period) {
         if (period.getName() == null) return null;
         if (period.getPassword() == null) return null;

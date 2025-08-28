@@ -51,6 +51,7 @@ public class AddictionServices {
         return true;
     }
 
+    @Transactional
     public boolean delete(DeleteAddictionDTO addiction) {
         if (addiction.getType() == null) return false;
         if (addiction.getPassword() == null) return false;

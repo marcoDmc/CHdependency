@@ -31,6 +31,7 @@ public class UserServices {
         this.userMapper = userMapper;
         this.utils = utils;
         this.config = config;
+        this.refreshTokenRepository = refreshTokenRepository;
     }
 
     public boolean updatePassword(UserPasswordDTO userDto) {

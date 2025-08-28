@@ -33,7 +33,10 @@ public class UserController {
     private final AuthenticationManager authenticationManager;
     private final JwtServices jwtServices;
 
-    UserController(UserServices userService) {
+    UserController(UserServices userService,
+                   AuthenticationServices authenticationService,
+                   AuthenticationManager authenticationManager,
+                   JwtServices jwtServices) {
         this.userServices = userService;
     }
 

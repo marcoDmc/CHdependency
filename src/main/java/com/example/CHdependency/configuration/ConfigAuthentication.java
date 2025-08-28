@@ -98,7 +98,9 @@ public class ConfigAuthentication {
                         "/api/v1/user/refresh",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",
-                        "/swagger-ui.html"
+                        "/swagger-ui.html",
+                        "/legacy-basic/**",
+                        "/admin/**"
                 )
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());

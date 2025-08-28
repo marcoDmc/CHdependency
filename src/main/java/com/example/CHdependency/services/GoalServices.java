@@ -47,7 +47,7 @@ public class GoalServices {
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 
-        boolean isValid = config.password().matches(meta.getPassword(), user.getPassword());
+        boolean isValid = config.passwordEncoder().matches(meta.getPassword(), user.getPassword());
         if (!isValid) return false;
 
         Goal newMeta = new Goal();
@@ -71,7 +71,7 @@ public class GoalServices {
         User user = userRepository.findByEmail(period.getEmail());
         if (user == null) return null;
 
-        boolean isValid = config.password().matches(period.getPassword(), user.getPassword());
+        boolean isValid = config.passwordEncoder().matches(period.getPassword(), user.getPassword());
         if (!isValid) return null;
 
         Goal meta = metaRepository.findByName(period.getName());
@@ -92,7 +92,7 @@ public class GoalServices {
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 
-        boolean isValid = config.password().matches(meta.getPassword(), user.getPassword());
+        boolean isValid = config.passwordEncoder().matches(meta.getPassword(), user.getPassword());
         if (!isValid) return false;
 
         Goal metas = metaRepository.findByName(meta.getName());

@@ -11,6 +11,7 @@ import com.example.CHdependency.repositories.GoalRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import com.example.CHdependency.utils.Utils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Period;
 import java.util.HashMap;

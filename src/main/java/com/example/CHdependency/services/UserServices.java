@@ -43,7 +43,7 @@ public class UserServices {
         if (!isPwd) return false;
         boolean verifyPasswordIsEqual = config.passwordEncoder().matches(userDto.getNewPassword(), user.getPassword());
         if (verifyPasswordIsEqual) return false;
-        user.setPassword(config.password().encode(userDto.getNewPassword()));
+        user.setPassword(config.passwordEncoder().encode(userDto.getNewPassword()));
         userRepository.save(user);
         return true;
     }

@@ -56,6 +56,7 @@ public class UserServices {
         boolean isValid = config.passwordEncoder().matches(userDto.getPassword(), user.getPassword());
         if (!isValid) return false;
 
+        refreshTokenRepository.deleteByUserId(user.getId());
         userRepository.delete(user);
         return true;
     }

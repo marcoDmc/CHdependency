@@ -5,11 +5,13 @@ import com.example.CHdependency.dto.user.UserDeleteDTO;
 import com.example.CHdependency.dto.user.UserPasswordDTO;
 import com.example.CHdependency.dto.user.UserRequestDTO;
 import com.example.CHdependency.dto.user.UserResponseDTO;
+import com.example.CHdependency.entities.User;
 import com.example.CHdependency.mappers.UserMapper;
+import com.example.CHdependency.repositories.RefreshTokenRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import com.example.CHdependency.utils.Utils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServices {

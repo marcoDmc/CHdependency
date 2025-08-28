@@ -11,7 +11,7 @@ public class UserAuthentication implements UserDetails {
 
     private final User user;
 
-    UserAuthentication(User user){
+    public UserAuthentication(User user) {
         this.user = user;
     }
 
@@ -20,7 +20,7 @@ public class UserAuthentication implements UserDetails {
         return List.of(() -> "read");
     }
 
-    public Long gentId() {
+    public Long getId() {
         return user.getId();
     }
 

@@ -76,4 +76,11 @@ public class UserServices {
 
         return userMapper.forResponse(user);
     }
+
+    @Transactional
+    public User getUser(String email) {
+        if (email.isEmpty()) return null;
+        return userRepository.findByEmail(email);
+
+    }
 }

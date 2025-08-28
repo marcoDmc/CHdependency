@@ -204,6 +204,7 @@ public class JwtServices {
         return refreshTokenRepository.findById(id);
     }
 
+    @Transactional
     public RefreshToken refreshTokenFindByUserId(Long userId) {
         return refreshTokenRepository.findByUserId(userId);
     }

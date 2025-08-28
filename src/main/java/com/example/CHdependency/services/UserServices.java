@@ -34,6 +34,7 @@ public class UserServices {
         this.refreshTokenRepository = refreshTokenRepository;
     }
 
+    @Transactional
     public boolean updatePassword(UserPasswordDTO userDto) {
         if (userDto.getEmail().isEmpty()) return false;
         var user = userRepository.findByEmail(userDto.getEmail());
@@ -47,6 +48,7 @@ public class UserServices {
         return true;
     }
 
+    @Transactional
     public boolean delete(UserDeleteDTO userDto) {
         var user = userRepository.findByEmail(userDto.getEmail());
         if (user == null) return false;
@@ -59,6 +61,7 @@ public class UserServices {
     }
 
 
+    @Transactional
     public UserResponseDTO create(UserRequestDTO userDto) {
         var user = userMapper.forUserEntity(userDto);
 

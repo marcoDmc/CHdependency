@@ -62,7 +62,7 @@ public class UserController {
     @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
     @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
     @ApiResponse(responseCode = "500", description = "something wrong here server side error")
-    public ResponseEntity<String> deleteUser(@RequestBody UserDeleteDTO user){
+    public ResponseEntity<String> deleteUser(@RequestBody UserDeleteDTO user) {
         boolean response = userServices.delete(user);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body("user delete successfully");
@@ -101,16 +101,16 @@ public class UserController {
                 new UsernamePasswordAuthenticationToken(data
                         .getUsername(), data.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(auth);
-        
+
         UserAuthentication userDetails = (UserAuthentication) auth.getPrincipal();
-        Long userId = userDetails.gentId();
+        Long userId = userDetails.getId();
 
         var token = jwtServices.refreshTokenFindById(userId);
         if (token.isPresent()) {
             jwtServices.refreshTokenDeleteById(userId);
         }
 
-        Map<String, String> tokens = authenticationService.authenticate(auth, userId);
+        Map<String, String> tokens = authenticationService.authenticateLogin(auth, userId);
 
         Cookie refreshTokenCookie = new Cookie("refreshToken", tokens.get("refresh_token"));
         refreshTokenCookie.setHttpOnly(true);

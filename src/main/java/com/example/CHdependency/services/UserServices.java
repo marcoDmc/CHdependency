@@ -53,7 +53,7 @@ public class UserServices {
         var user = userRepository.findByEmail(userDto.getEmail());
         if (user == null) return false;
 
-        boolean isValid = config.password().matches(userDto.getPassword(), user.getPassword());
+        boolean isValid = config.passwordEncoder().matches(userDto.getPassword(), user.getPassword());
         if (!isValid) return false;
 
         userRepository.delete(user);

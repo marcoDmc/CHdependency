@@ -1,10 +1,10 @@
 package com.example.CHdependency.controllers;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
-import com.example.CHdependency.dto.user.UserDeleteDTO;
-import com.example.CHdependency.dto.user.UserPasswordDTO;
-import com.example.CHdependency.dto.user.UserRequestDTO;
-import com.example.CHdependency.dto.user.UserResponseDTO;
+import com.example.CHdependency.configuration.UserAuthentication;
+import com.example.CHdependency.dto.user.*;
+import com.example.CHdependency.services.AuthenticationServices;
+import com.example.CHdependency.services.JwtServices;
 import com.example.CHdependency.services.UserServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

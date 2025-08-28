@@ -68,6 +68,7 @@ public class JwtServices {
         return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
 
+    @Transactional
     public String updateRefreshToken(Long userId) {
         String jti = UUID.randomUUID().toString();
 
@@ -101,6 +102,7 @@ public class JwtServices {
         return jwtRefreshToken;
     }
 
+    @Transactional
     public String generateRefreshToken(Long userId) {
         String jti = UUID.randomUUID().toString();
 

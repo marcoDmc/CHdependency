@@ -199,6 +199,7 @@ public class JwtServices {
         refreshTokenRepository.deleteByUserId(id);
     }
 
+    @Transactional
     public Optional<RefreshToken> refreshTokenFindById(Long id) {
         return refreshTokenRepository.findById(id);
     }

@@ -28,7 +28,10 @@ import java.util.Map;
 @Tag(name = "User", description = "deals with everything that involves the user since the creation")
 @SecurityRequirement(name = ConfigAuthentication.SECURITY)
 public class UserController {
-    final UserServices userServices;
+    private final UserServices userServices;
+    private final AuthenticationServices authenticationService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtServices jwtServices;
 
     UserController(UserServices userService) {
         this.userServices = userService;

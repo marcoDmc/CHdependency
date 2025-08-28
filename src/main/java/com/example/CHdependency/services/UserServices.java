@@ -25,7 +25,8 @@ public class UserServices {
     public UserServices(UserRepository userRepository,
                         UserMapper userMapper,
                         Utils utils,
-                        ConfigAuthentication config) {
+                        ConfigAuthentication config,
+                        RefreshTokenRepository refreshTokenRepository) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.utils = utils;

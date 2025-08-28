@@ -31,6 +31,7 @@ public class AddictionServices {
         this.utils = utils;
     }
 
+    @Transactional
     public boolean create(AddictionDTO addictionDto) {
         if (addictionDto.getType() == null) return false;
         if (addictionDto.getPassword() == null) return false;

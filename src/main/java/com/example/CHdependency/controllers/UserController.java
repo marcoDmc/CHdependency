@@ -85,4 +85,43 @@ public class UserController {
                 .status(HttpStatus.CREATED)
                 .body(response);
     }
+
+    @PostMapping("/user/login")
+    @Operation(summary = "authenticate", description = "route for login of user credentials")
+    @ApiResponse(responseCode = "200", description = "user successfully login")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
+    public ResponseEntity<Map<String, String>> userLogin(@RequestBody CrendentialsUserDTO data, HttpServletResponse response) {
+
+        if (data.getUsername().isEmpty() ||
+                data.getPassword().isEmpty() ||
+                data.getEmail().isEmpty()) return ResponseEntity.ok(Map.of("message", "invalid credentials"));
+
+        Authentication auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(data
+                        .getUsername(), data.getPassword()));
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        
+        UserAuthentication userDetails = (UserAuthentication) auth.getPrincipal();
+        Long userId = userDetails.gentId();
+
+        var token = jwtServices.refreshTokenFindById(userId);
+        if (token.isPresent()) {
+            jwtServices.refreshTokenDeleteById(userId);
+        }
+
+        Map<String, String> tokens = authenticationService.authenticate(auth, userId);
+
+        Cookie refreshTokenCookie = new Cookie("refreshToken", tokens.get("refresh_token"));
+        refreshTokenCookie.setHttpOnly(true);
+        refreshTokenCookie.setSecure(true);
+        refreshTokenCookie.setPath("/api/v1/user/refresh");
+        refreshTokenCookie.setMaxAge((int) (8 * 60 * 60));
+
+        response.addCookie(refreshTokenCookie);
+
+        String access_token = tokens.get("access_token");
+        return ResponseEntity.ok(Map.of("access_token", access_token));
+
+    }
 }

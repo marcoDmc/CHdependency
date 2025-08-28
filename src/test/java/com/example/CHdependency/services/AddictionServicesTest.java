@@ -64,7 +64,7 @@ class AddictionServicesTest {
         configField.set(addictionServices, config); // Injeta o mock 'config' na instância 'addictionServices'
 
         // Stubbing do password encoder retornado pelo mock de config [1]
-        lenient().when(config.password()).thenReturn(passwordEncoder);
+        lenient().when(config.passwordEncoder()).thenReturn(passwordEncoder);
 
         // Fixture comum para User
         user = new User();

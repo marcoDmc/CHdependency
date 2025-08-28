@@ -68,7 +68,7 @@ class UserServicesTest {
     void setUp() {
         // Configuração preventiva: evita UnnecessaryStubbingException em testes onde config.password() não é usado
         // O lenient() permite que este stub exista mesmo se não for chamado em todos os testes
-        lenient().when(config.password()).thenReturn(passwordEncoder);
+        lenient().when(config.passwordEncoder()).thenReturn(passwordEncoder);
 
         // === CRIAÇÃO DE FIXTURES PADRÃO ===
         // Entidade User base para todos os testes
@@ -259,7 +259,7 @@ class UserServicesTest {
         void setUp() {
             // Configuração crítica: garante que o serviço pode obter o passwordEncoder via config
             // Esta é uma dependência arquitetural que deve ser mockada corretamente
-            lenient().when(config.password()).thenReturn(passwordEncoder);
+            lenient().when(config.passwordEncoder()).thenReturn(passwordEncoder);
 
             // DTO com credenciais para teste de atualização
             userPasswordDTO = new UserPasswordDTO("test@example.com", "oldRawPassword", "newRawPassword");

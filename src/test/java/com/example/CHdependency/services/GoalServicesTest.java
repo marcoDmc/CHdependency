@@ -20,7 +20,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.util.StringUtils; // Adicionado para a explicação da correção no serviço
 
 import java.time.Period;
 import java.util.Map;
@@ -91,7 +90,7 @@ class GoalServicesTest {
         // @InjectMocks tentaria injetá-lo, ou poderíamos injetá-lo manualmente aqui.
 
         // Stubbing do password encoder retornado pelo mock de config [1]
-        lenient().when(config.password()).thenReturn(passwordEncoder);
+        lenient().when(config.passwordEncoder()).thenReturn(passwordEncoder);
 
         // Fixture comum para User
         user = new User();

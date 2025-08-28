@@ -172,6 +172,7 @@ public class JwtServices {
         return jwt.getClaim("jti"); // String
     }
 
+    @Transactional
     public Optional<RefreshToken> findByHashedToken(String token) {
         var jwt = jwtDecoder.decode(token);
 
@@ -188,6 +189,7 @@ public class JwtServices {
                 .findFirst();
     }
 
+    @Transactional
     public void refreshTokenDeleteById(Long id) {
         refreshTokenRepository.deleteById(id);
     }

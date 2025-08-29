@@ -139,11 +139,7 @@ public class JwtServices {
             var jwt = jwtDecoder.decode(token);
             String url = String.valueOf(jwt.getIssuer());
             Instant exp = jwt.getExpiresAt();
-            System.out.println("Issuer from token: " + url);
-            System.out.println("Exp from token: " + exp);
-            System.out.println("url from token: " + url.equals(issuerUrl));
             boolean notExpired = exp == null || exp.isAfter(Instant.now());
-            System.out.println("notexp from token: " + notExpired);
             return notExpired && url.equals(issuerUrl);
         } catch (Exception e) {
             return false;

@@ -34,6 +34,7 @@ public class GoalServices {
         this.metaRepository = metaRepository;
         this.userRepository = userRepository;
         this.addictionRepository = addictionRepository;
+        this.configAuthentication = configAuthentication;
 
 
     }
@@ -48,7 +49,7 @@ public class GoalServices {
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 
-        boolean isValid = config.passwordEncoder().matches(meta.getPassword(), user.getPassword());
+        boolean isValid = configAuthentication.passwordEncoder().matches(meta.getPassword(), user.getPassword());
         if (!isValid) return false;
 
         Goal newMeta = new Goal();
@@ -72,7 +73,7 @@ public class GoalServices {
         User user = userRepository.findByEmail(period.getEmail());
         if (user == null) return null;
 
-        boolean isValid = config.passwordEncoder().matches(period.getPassword(), user.getPassword());
+        boolean isValid = configAuthentication.passwordEncoder().matches(period.getPassword(), user.getPassword());
         if (!isValid) return null;
 
         Goal meta = metaRepository.findByName(period.getName());
@@ -93,7 +94,7 @@ public class GoalServices {
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 
-        boolean isValid = config.passwordEncoder().matches(meta.getPassword(), user.getPassword());
+        boolean isValid = configAuthentication.passwordEncoder().matches(meta.getPassword(), user.getPassword());
         if (!isValid) return false;
 
         Goal metas = metaRepository.findByName(meta.getName());

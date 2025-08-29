@@ -29,7 +29,8 @@ public class GoalServices {
 
     GoalServices(GoalRepository metaRepository,
                  UserRepository userRepository,
-                 AddictionRepository addictionRepository) {
+                 AddictionRepository addictionRepository,
+                 ConfigAuthentication configAuthentication) {
         this.metaRepository = metaRepository;
         this.userRepository = userRepository;
         this.addictionRepository = addictionRepository;

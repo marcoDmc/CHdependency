@@ -25,7 +25,7 @@ public class GoalServices {
     private final UserRepository userRepository;
     private final AddictionRepository addictionRepository;
     private final Utils utils = new Utils();
-    private ConfigAuthentication config;
+    private final ConfigAuthentication configAuthentication;
 
     GoalServices(GoalRepository metaRepository,
                  UserRepository userRepository,

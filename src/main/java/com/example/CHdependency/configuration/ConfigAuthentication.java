@@ -121,7 +121,8 @@ public class ConfigAuthentication {
                 .cors(Customizer.withDefaults())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
-                                "/api/v1/user/**",
+                                "/api/v1/user/login",
+                                "/api/v1/user/create",
                                 "/api/v1/user/login",
                                 "/api/v1/user/login",
                                 "/api/v1/user/refresh",

@@ -93,8 +93,8 @@ public class ConfigAuthentication {
     public SecurityFilterChain publicChain(HttpSecurity http) throws Exception {
         http
                 .securityMatcher(
-                        "/api/v1/user/**",
-                        "/api/v1/user/login",
+
+                        "/api/v1/user/login","/api/v1/user/create",
                         "/api/v1/user/refresh",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",

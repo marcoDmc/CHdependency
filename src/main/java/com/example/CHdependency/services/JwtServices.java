@@ -112,7 +112,7 @@ public class JwtServices {
         String subject = String.valueOf(userId);
 
         var claims = JwtClaimsSet.builder()
-                .issuer(issuerUrl)
+                .issuer(issueUrl)
                 .issuedAt(now)
                 .expiresAt(now.plusSeconds(expirationInSeconds))
                 .subject(subject)

@@ -135,7 +135,6 @@ public class JwtServices {
 
 
     public boolean refreshTokenIsTokenValid(String token) {
-        String issuerUrl = "http://localhost:8080/api/v1";
         try {
             var jwt = jwtDecoder.decode(token);
             String url = String.valueOf(jwt.getIssuer());

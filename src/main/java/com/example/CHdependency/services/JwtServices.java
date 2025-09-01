@@ -25,6 +25,9 @@ import java.util.stream.Collectors;
 public class JwtServices {
     @Value("${jwt.private.key}")
     private RSAPrivateKey priv;
+
+    @Value("${issue.url.value}")
+    private String issueUrl;
     private final JwtEncoder jwtEncoder;
     private final ConfigAuthentication configAuthentication;
     private final UserRepository userRepository;

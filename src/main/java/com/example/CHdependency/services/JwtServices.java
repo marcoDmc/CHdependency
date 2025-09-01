@@ -78,7 +78,6 @@ public class JwtServices {
 
         if (userId == null) throw new IllegalArgumentException("ID do usuário não pode ser nulo");
 
-        String issuerUrl = "http://localhost:8080/api/v1";
         String subject = String.valueOf(userId);
 
         var claims = JwtClaimsSet.builder()

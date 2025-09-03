@@ -94,7 +94,7 @@ public class ConfigAuthentication {
         http
                 .securityMatcher(
 
-                        "/api/v1/user/login","/api/v1/user/create",
+                        "/api/v1/user/login", "/api/v1/user/create",
                         "/api/v1/user/refresh",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",

@@ -39,6 +39,9 @@ public class UserServices {
         this.utils = utils;
         this.config = config;
         this.refreshTokenRepository = refreshTokenRepository;
+        this.s3Service = s3Service;
+        this.profileRepository = profileRepository;
+        this.profileServices = profileServices;
     }
 
     @Transactional

@@ -1,17 +1,24 @@
 package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
-import com.example.CHdependency.dto.user.UserDeleteDTO;
-import com.example.CHdependency.dto.user.UserPasswordDTO;
-import com.example.CHdependency.dto.user.UserRequestDTO;
-import com.example.CHdependency.dto.user.UserResponseDTO;
+import com.example.CHdependency.dto.user.*;
+import com.example.CHdependency.entities.Profile;
 import com.example.CHdependency.entities.User;
 import com.example.CHdependency.mappers.UserMapper;
+import com.example.CHdependency.repositories.ProfileRepository;
 import com.example.CHdependency.repositories.RefreshTokenRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import com.example.CHdependency.utils.Utils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserServices {

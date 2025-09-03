@@ -39,6 +39,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation("io.jsonwebtoken:jjwt:0.9.1")
+    implementation 'com.github.gotson:webp-imageio:0.2.2'
+    implementation 'software.amazon.awssdk:s3'
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3:3.4.0'
 }
 
 tasks.named('test') {

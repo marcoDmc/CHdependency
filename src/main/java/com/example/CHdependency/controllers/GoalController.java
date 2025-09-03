@@ -1,9 +1,9 @@
 package com.example.CHdependency.controllers;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
-import com.example.CHdependency.dto.goal.DeleteGoalDTO;
-import com.example.CHdependency.dto.goal.FindGoalPeriodDTO;
+import com.example.CHdependency.dto.goal.GoalDeleteDTO;
 import com.example.CHdependency.dto.goal.GoalDTO;
+import com.example.CHdependency.dto.goal.GoalFindPeriodDTO;
 import com.example.CHdependency.services.GoalServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -44,7 +44,7 @@ public class GoalController {
     @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
     @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
     @ApiResponse(responseCode = "500", description = "something wrong here server side error")
-    public ResponseEntity<Object> findGoalPeriod(@RequestBody FindGoalPeriodDTO period){
+    public ResponseEntity<Object> findGoalPeriod(@RequestBody GoalFindPeriodDTO period){
         Map<String, Object> response = goalServices.findPeriod(period);
         if(response == null) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body(response);
@@ -55,7 +55,7 @@ public class GoalController {
     @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
     @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
     @ApiResponse(responseCode = "500", description = "something wrong here server side error")
-    public ResponseEntity<String> deleteGoal(@RequestBody DeleteGoalDTO goal){
+    public ResponseEntity<String> deleteGoal(@RequestBody GoalDeleteDTO goal){
         boolean response = goalServices.delete(goal);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body("delete goal successfully");

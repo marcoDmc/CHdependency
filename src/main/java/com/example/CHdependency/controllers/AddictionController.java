@@ -2,7 +2,7 @@ package com.example.CHdependency.controllers;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.dto.addiction.AddictionDTO;
-import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
+import com.example.CHdependency.dto.addiction.AddictionDeleteDTO;
 import com.example.CHdependency.services.AddictionServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -40,7 +40,7 @@ public class AddictionController {
     @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
     @ApiResponse(responseCode = "401", description = "You do not have permission to access this route")
     @ApiResponse(responseCode = "500", description = "something wrong here server side error")
-    public ResponseEntity<String> deleteAddiction(@RequestBody DeleteAddictionDTO meta){
+    public ResponseEntity<String> deleteAddiction(@RequestBody AddictionDeleteDTO meta){
         boolean response = addictionServices.delete(meta);
         if (!response) return ResponseEntity.status(400).body("something is wrong");
         else return ResponseEntity.status(200).body("delete addiction successfully");

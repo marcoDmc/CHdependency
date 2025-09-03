@@ -83,4 +83,48 @@ public class UserServices {
         return userRepository.findByEmail(email);
 
     }
+
+
+    @Transactional
+    public String saveImage(MultipartFile file, User user) throws Exception {
+        var binaryData = file.getInputStream();
+        BufferedImage buffer = ImageIO.read(binaryData);
+
+        BufferedImage newBuffer = new BufferedImage(220, 220, buffer.TYPE_INT_RGB);
+        Graphics2D graphic = newBuffer.createGraphics();
+        graphic.drawImage(buffer, 0, 0, 220, 220, null);
+        graphic.dispose();
+
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(newBuffer, "WebP", baos);
+        byte[] optimizedImageBytes = baos.toByteArray();
+
+        String filename = UUID.randomUUID().toString() + ".webp";
+
+        s3Service.awsBucketManager(optimizedImageBytes, filename);
+
+        Profile profile = profileServices.findProfile(user.getId()).orElse(new Profile());
+
+        profile.setUser(user);
+        profile.setImage("images/" + filename);
+        profileRepository.save(profile);
+
+
+        return filename;
+    }
+
+    @Transactional
+    public Optional<User> getUserId(Long id) {
+        if (id == null) return null;
+        return userRepository.findById(id);
+    }
+
+    @Transactional
+    public Optional<User> getName(String name) {
+        if (name.isEmpty()) return null;
+        return userRepository.findByName(name);
+    }
 }
+
+

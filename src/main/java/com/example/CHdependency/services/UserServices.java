@@ -30,7 +30,10 @@ public class UserServices {
                         UserMapper userMapper,
                         Utils utils,
                         ConfigAuthentication config,
-                        RefreshTokenRepository refreshTokenRepository) {
+                        ProfileRepository profileRepository,
+                        RefreshTokenRepository refreshTokenRepository,
+                        ProfileServices profileServices,
+                        S3Services s3Service) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.utils = utils;

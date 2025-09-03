@@ -21,6 +21,10 @@ public class UserServices {
     private final ConfigAuthentication config;
     private final RefreshTokenRepository refreshTokenRepository;
 
+    private final S3Services s3Service;
+    private final ProfileRepository profileRepository;
+    private final ProfileServices profileServices;
+
 
     public UserServices(UserRepository userRepository,
                         UserMapper userMapper,

@@ -1,9 +1,9 @@
 package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
-import com.example.CHdependency.dto.goal.DeleteGoalDTO;
-import com.example.CHdependency.dto.goal.FindGoalPeriodDTO;
+import com.example.CHdependency.dto.goal.GoalDeleteDTO;
 import com.example.CHdependency.dto.goal.GoalDTO;
+import com.example.CHdependency.dto.goal.GoalFindPeriodDTO;
 import com.example.CHdependency.entities.Goal;
 import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.AddictionRepository;
@@ -65,7 +65,7 @@ public class GoalServices {
     }
 
     @Transactional
-    public Map<String, Object> findPeriod(FindGoalPeriodDTO period) {
+    public Map<String, Object> findPeriod(GoalFindPeriodDTO period) {
         if (period.getName() == null) return null;
         if (period.getPassword() == null) return null;
         if (!utils.validateEmail(period.getEmail()) || period.getEmail() == null) return null;
@@ -90,7 +90,7 @@ public class GoalServices {
     }
 
     @Transactional
-    public boolean delete(DeleteGoalDTO meta) {
+    public boolean delete(GoalDeleteDTO meta) {
         User user = userRepository.findByEmail(meta.getEmail());
         if (user == null) return false;
 

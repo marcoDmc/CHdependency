@@ -2,7 +2,7 @@ package com.example.CHdependency.services;
 
 import com.example.CHdependency.configuration.ConfigAuthentication;
 import com.example.CHdependency.dto.addiction.AddictionDTO;
-import com.example.CHdependency.dto.addiction.DeleteAddictionDTO;
+import com.example.CHdependency.dto.addiction.AddictionDeleteDTO;
 import com.example.CHdependency.entities.Addiction;
 import com.example.CHdependency.entities.User;
 import com.example.CHdependency.repositories.AddictionRepository;
@@ -52,7 +52,7 @@ public class AddictionServices {
     }
 
     @Transactional
-    public boolean delete(DeleteAddictionDTO addiction) {
+    public boolean delete(AddictionDeleteDTO addiction) {
         if (addiction.getType() == null) return false;
         if (addiction.getPassword() == null) return false;
         if (!utils.validateEmail(addiction.getEmail())) return false;

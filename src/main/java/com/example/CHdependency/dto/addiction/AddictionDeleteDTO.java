@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeleteAddictionDTO {
+public class AddictionDeleteDTO {
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")

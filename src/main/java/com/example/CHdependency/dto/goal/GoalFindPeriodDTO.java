@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FindGoalPeriodDTO {
+public class GoalFindPeriodDTO {
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")

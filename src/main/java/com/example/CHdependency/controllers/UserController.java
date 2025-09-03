@@ -128,4 +128,23 @@ public class UserController {
         return ResponseEntity.ok(Map.of("access_token", access_token));
 
     }
+
+
+    @PostMapping("/user/profile")
+    @Operation(summary = "update profile", description = "route for update profile")
+    @ApiResponse(responseCode = "200", description = "user updated profile,successfully")
+    @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
+    @ApiResponse(responseCode = "500", description = "something wrong here server side error")
+    public ResponseEntity<String> updateProfile(@RequestParam("file") MultipartFile file, @AuthenticationPrincipal Jwt authenticatedUser) throws Exception {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest().body("the file cannot be empty");
+        }
+        String username = authenticatedUser.getClaim("sub");
+
+        var user = userServices.getName(username).orElseThrow(() -> new IllegalArgumentException("user not found."));
+
+        String result = userServices.saveImage(file, user);
+
+        return ResponseEntity.ok().body("file " + result + " save successfully!");
+    }
 }

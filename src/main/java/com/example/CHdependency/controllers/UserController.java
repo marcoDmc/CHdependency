@@ -95,7 +95,7 @@ public class UserController {
     @ApiResponse(responseCode = "200", description = "user successfully login")
     @ApiResponse(responseCode = "400", description = "something wrong here, the request could not be executed")
     @ApiResponse(responseCode = "500", description = "something wrong here server side error")
-    public ResponseEntity<Map<String, String>> userLogin(@RequestBody CrendentialsUserDTO data, HttpServletResponse response) {
+    public ResponseEntity<Map<String, String>> userLogin(@RequestBody UserCredentialsDTO data, HttpServletResponse response) {
 
         if (data.getUsername().isEmpty() ||
                 data.getPassword().isEmpty() ||

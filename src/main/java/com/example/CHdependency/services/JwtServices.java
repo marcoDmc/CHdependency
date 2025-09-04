@@ -138,7 +138,7 @@ public class JwtServices {
     public boolean refreshTokenIsTokenValid(String token) {
         try {
             var jwt = jwtDecoder.decode(token);
-            String url = String.valueOf(jwt.getIssuer());
+            URL issuerUri = jwt.getIssuer();
             Instant exp = jwt.getExpiresAt();
             boolean notExpired = exp == null || exp.isAfter(Instant.now());
             return notExpired && url.equals(issueUrl);

@@ -23,6 +23,10 @@ import java.util.UUID;
 
 @Service
 public class UserServices {
+
+    @Value("${aws.url.object}")
+    private String awsUrl;
+
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final Utils utils;

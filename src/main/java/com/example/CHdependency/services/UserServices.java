@@ -133,7 +133,7 @@ public class UserServices {
         profileRepository.save(profile);
 
 
-        return filename;
+        return awsUrl + "images/" + filename;
     }
 
     @Transactional

@@ -141,7 +141,7 @@ public class JwtServices {
             URL issuerUri = jwt.getIssuer();
             Instant exp = jwt.getExpiresAt();
             boolean notExpired = exp == null || exp.isAfter(Instant.now());
-            return notExpired && url.equals(issueUrl);
+            return notExpired && issuerUri.toString().equals(issueUrl);
         } catch (Exception e) {
             return false;
         }

@@ -14,7 +14,7 @@ public class ProfileServices {
         this.profileRepository = profileRepository;
     }
 
-    public Optional<Profile> findProfile(Long id){
-        return profileRepository.findById(id);
+    public Profile findProfile(Long id){
+        return profileRepository.findByUserId(id);
     }
 }

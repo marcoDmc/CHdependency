@@ -9,6 +9,7 @@ import com.example.CHdependency.repositories.ProfileRepository;
 import com.example.CHdependency.repositories.RefreshTokenRepository;
 import com.example.CHdependency.repositories.UserRepository;
 import com.example.CHdependency.utils.Utils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;

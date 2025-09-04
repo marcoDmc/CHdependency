@@ -130,6 +130,7 @@ public class UserServices {
 
         profile.setUser(user);
         profile.setImage("images/" + filename);
+
         profileRepository.save(profile);
 
 

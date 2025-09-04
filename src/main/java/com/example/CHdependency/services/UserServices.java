@@ -126,9 +126,11 @@ public class UserServices {
 
         s3Service.awsBucketManager(optimizedImageBytes, filename);
 
-        Profile profile = profileServices.findProfile(user.getId()).orElse(new Profile());
-
-        profile.setUser(user);
+        Profile profile = profileServices.findProfile(user.getId());
+        if (profile == null) {
+            profile = new Profile();
+            profile.setUser(user);
+        }
         profile.setImage("images/" + filename);
 
         profileRepository.save(profile);

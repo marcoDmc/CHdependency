@@ -27,7 +27,7 @@ public class JwtServices {
     @Value("${jwt.private.key}")
     private RSAPrivateKey priv;
 
-    @Value("${issue.url.value}")
+    @Value("${issue.url}")
     private String issueUrl;
     private final JwtEncoder jwtEncoder;
     private final ConfigAuthentication configAuthentication;
